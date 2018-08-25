@@ -6,13 +6,30 @@
 <meta http-equiv="x-ua-compatible" content="IE=10">
 <title></title>
 <style type="text/css">#initialLoading{background:url(assets/htmlimages/loader.gif) no-repeat center center;background-color:#ffffff;position:absolute;margin:auto;top:0;left:0;right:0;bottom:0;z-index:10010;}</style>
-
+   <script>
+    window.ibmNps = {
+      offeringId: "eb89204e-9e0e-482e-bc2c-1683b3948d35",
+      userId: "",
+      disableHashing: true,
+	  deferSurvey:true,
+	
+    };
+    
+    
+  </script>
+<script async src="https://nps.mybluemix.net/survey/nps-survey.js"></script>
 <script>
 
 var deviceReady = false;
 var initCalled = false ;
 var initialized = false;
-
+function initial()
+{
+	onBodyLoad();
+	setTimeout( function(){
+	showNpsSurvey();},"220000");
+//3min20s弹出
+}
 function onBodyLoad()
 {
 	if(typeof window.device === 'undefined')
@@ -60,8 +77,9 @@ function initializeCP()
 </script>
 
  </head>
-<body onload="onBodyLoad()">
+<body onload="initial()">
 		<div id='initialLoading'></div>
+		
 <script>
 		(function()
 		{
